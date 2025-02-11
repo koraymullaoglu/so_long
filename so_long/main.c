@@ -49,7 +49,6 @@ void    open_win(t_win *win, char *path)
     y = 0;
     win->map = read_map(path);
     start_mlx(win, x, y);
-    load_map(win);
     check_player(win);
     check_map_size(win);
     check_wall(win);
@@ -70,6 +69,7 @@ int main(int ac, char **av)
         map_path_control(av[1]);
         map_file_exits(av[1]);
         open_win(&win, av[1]);
+        load_map(&win);
         mlx_loop((&win)->mlx);
 
     }
