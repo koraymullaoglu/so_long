@@ -20,6 +20,25 @@ void    start_mlx(t_win *win, int x, int y)
     win->block_bg = mlx_xpm_file_to_image(win->mlx, "assets/wall.xpm", &x, &y);
 }
 
+void    stop_mlx(t_win *win)
+{
+    int i;
+
+    i = 0;
+    mlx_destroy_image(win->mlx, win->chr->cur);
+    mlx_destroy_image(win->mlx, win->c_bg);
+    mlx_destroy_image(win->mlx, win->end_bg);
+    mlx_destroy_image(win->mlx, win->block_bg);
+    mlx_destroy_image(win->mlx, win->img_bg);
+    free(win->chr);
+    while(win->map->map_lines[i])
+        free(win->map->map_lines[i++]);
+    free(win->map->map_lines);
+    free(win->map);
+    mlx_destroy_window(win->mlx, win->win);
+    exit(1);
+}
+
 
 void    open_win(t_win *win, char *path)
 {
@@ -30,6 +49,13 @@ void    open_win(t_win *win, char *path)
     y = 0;
     win->map = read_map(path);
     start_mlx(win, x, y);
+    load_map(win);
+    check_player(win);
+    check_map_size(win);
+    check_wall(win);
+    check_exit(win);
+    check_coin(win);
+    check_elements(win);
 }
 
 
@@ -44,7 +70,6 @@ int main(int ac, char **av)
         map_path_control(av[1]);
         map_file_exits(av[1]);
         open_win(&win, av[1]);
-        load_map(&win);
         mlx_loop((&win)->mlx);
 
     }
