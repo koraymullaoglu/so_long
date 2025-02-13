@@ -44,7 +44,7 @@ void    map_file_exits(char *path);
 t_map   *read_map(char *path);
 void    load_map(t_win *win);
 
-void    stop_mlx(t_win *win);
+int    stop_mlx(t_win *win);
 
 void    check_player(t_win *win);
 void    check_map_size(t_win *win);
@@ -53,8 +53,9 @@ void    check_exit(t_win *win);
 void    check_coin(t_win *win);
 void    check_elements(t_win *win);
 
+int catch_key(int keycode, void *param);
 
-void    stop_mlx(t_win *win);
+
 
 
 

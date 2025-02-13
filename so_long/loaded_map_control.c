@@ -114,13 +114,17 @@ void check_coin(t_win *win)
 
     i = 0;
     win->map->coin_ct = 0;
+    win->map->cb = 0;
     while(win->map->map_lines[i])
     {
         j = 0;
         while(win->map->map_lines[i][j])
         {
             if (win->map->map_lines[i][j] == 'C')
+            {
                 win->map->coin_ct += 1;
+                win->map->cb += 1;
+            }
             j++;
         }
         i++;

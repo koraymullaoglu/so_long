@@ -20,7 +20,7 @@ void    start_mlx(t_win *win, int x, int y)
     win->block_bg = mlx_xpm_file_to_image(win->mlx, "assets/wall.xpm", &x, &y);
 }
 
-void    stop_mlx(t_win *win)
+int    stop_mlx(t_win *win)
 {
     int i;
 
@@ -70,6 +70,8 @@ int main(int ac, char **av)
         map_file_exits(av[1]);
         open_win(&win, av[1]);
         load_map(&win);
+        mlx_hook(win.win, 17, 0, stop_mlx, &win);
+		mlx_hook(win.win, 2, (1L << 0), catch_key, &win);
         mlx_loop((&win)->mlx);
 
     }
