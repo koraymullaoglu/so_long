@@ -51,7 +51,7 @@ int check_ff(char **map)
         j = 0;
         while (map[i][j])
         {
-            if ((map[i][j] != '8' && map[i][j] != '1' && map[i][j] != '\n'))
+            if ((map[i][j] == 'C' || map[i][j] == 'E'))
                 return (1);
             j++;
         }

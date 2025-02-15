@@ -71,9 +71,6 @@ int main(int ac, char **av)
         map_path_control(av[1]);
         map_file_exits(av[1]);
         open_win(&win, av[1]);
-        //new = copymap(win.map.maplines)
-        //if (flood_fill(new) == 1)
-        //         exit
         load_map(&win);
         mlx_hook(win.win, 17, 0, stop_mlx, &win);
 		mlx_hook(win.win, 2, (1L << 0), catch_key, &win);

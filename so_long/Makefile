@@ -6,20 +6,24 @@ CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -L./minilibx -lmlx -framework OpenGL -framework AppKit
 
 LIBFT = libft/libft.a
+FTPRINTF = ft_printf/libftprintf.a
 
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft
-	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(LIBFT) -o $(NAME)
+	make -C ft_printf
+	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(FTPRINTF) $(LIBFT) -o $(NAME)
 
 clean:
 	make clean -C libft
+	make clean -C ft_printf
 	rm -f $(OBJ)
 
 fclean: clean
 	make fclean -C libft
+	make fclean -C ft_printf
 	rm -f $(NAME)
 
 re: fclean all

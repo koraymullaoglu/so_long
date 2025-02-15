@@ -1,16 +1,16 @@
 #include "so_long.h"
 #include "minilibx/mlx.h"
-#include <stdio.h>
+#include "./ft_printf/inc/ft_printf.h"
 
 void    move_player(t_win *win, int x, int y)
 {
     if (win->map->cb == 0 && win->map->map_lines[y / 64][x / 64] == 'E')
     {
-        win->chr->point++;
-        printf("Win\n"); //ft
+        ft_printf("movement: %d\n", ++win->chr->point); //burayagirmiuo
+        ft_printf("Win!\n"); 
         stop_mlx(win);
     }
-    if (!(win->map->map_lines[y / 64][x / 64] == '1' || win->map->map_lines[y / 64][x / 64] == 'E'))
+    if (!(win->map->map_lines[y / 64][x / 64] == '1'))
     {
         win->chr->point++;
         if (win->map->map_lines[y / 64][x / 64] == 'C')
@@ -19,6 +19,7 @@ void    move_player(t_win *win, int x, int y)
         win->map->map_lines[win->map->gatey / 64][win->map->gatex / 64] = 'E';
         win->map->map_lines[y / 64][x / 64] = 'P'; 
     }
+    ft_printf("movement: %d\n", win->chr->point);
 }
 
 int catch_key(int keycode, void *param)
@@ -27,7 +28,7 @@ int catch_key(int keycode, void *param)
     win = param;
     mlx_clear_window(win->mlx, win->win);
     if (keycode == 2)
-    move_player(win,  win->chr->l_x + 64, win->chr->l_y);
+        move_player(win,  win->chr->l_x + 64, win->chr->l_y);
     if (keycode == 0)
         move_player(win,  win->chr->l_x - 64, win->chr->l_y);
     if (keycode == 13)
