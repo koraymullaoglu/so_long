@@ -20,11 +20,16 @@ typedef struct s_map
     int         p_ct;
     int         end_ct;
     int         coin_ct;
+    int         coin_fnd;
+    int         ext_fnd;
+    int         player_x;
+    int         player_y;
 }   t_map;
 
 typedef struct s_win
 {
     t_map *map;
+    t_map *map_copy;
     t_char *chr;
     void    *win;
     void    *mlx;
@@ -53,7 +58,8 @@ void    check_exit(t_win *win);
 void    check_coin(t_win *win);
 void    check_elements(t_win *win);
 
-int catch_key(int keycode, void *param);
+int     catch_key(int keycode, void *param);
+void    start_ff(t_win *win);
 
 
 

@@ -124,6 +124,7 @@ void check_coin(t_win *win)
             {
                 win->map->coin_ct += 1;
                 win->map->cb += 1;
+                win->map->coin_fnd += 1;
             }
             j++;
         }

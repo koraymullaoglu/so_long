@@ -8,7 +8,7 @@ void    move_player(t_win *win, int x, int y)
     {
         win->chr->point++;
         printf("Win\n"); //ft
-        stop_mlx(win->win);
+        stop_mlx(win);
     }
     if (!(win->map->map_lines[y / 64][x / 64] == '1' || win->map->map_lines[y / 64][x / 64] == 'E'))
     {
