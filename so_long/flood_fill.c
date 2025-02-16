@@ -65,8 +65,5 @@ void    start_ff(t_win *win)
     find_player(win);
     f_fill(win->map_copy, win->map_copy->player_y, win->map_copy->player_x);
     if (check_ff(win->map_copy->map_lines) == 1)
-    {
         stop_mlx(win);
-        exit(1);
-    }
 }

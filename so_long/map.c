@@ -4,6 +4,7 @@
 #include "minilibx/mlx.h"
 #include <fcntl.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
 int     count_map_lines(int fd)
@@ -11,16 +12,14 @@ int     count_map_lines(int fd)
     int i;
     char *line;
 
-    i = -1;
-    line = malloc(1);
-    line[0] = 1;
+    i = 0;
+    line = get_next_line(fd);
     while (line)
     {
         free(line);
         line = get_next_line(fd);
         i++;
-    }
-    free(line);
+    }   
     return (i);
 }
 
@@ -29,6 +28,11 @@ int get_map_lines(int fd, t_map *map)
     int i;
 
     i = 0;
+    if (map->h <= 0)
+    {
+        
+        return (1);
+    }
     while(i < map->h)
     {
         map->map_lines[i] = get_next_line(fd);
@@ -37,10 +41,10 @@ int get_map_lines(int fd, t_map *map)
     close(fd);
     if (!map->map_lines[0])
     {
-        //freemap
+        free_map(map);
         return (1);
     }
-    map->w = ft_strlen(map->map_lines[0]);
+    map->w = ft_strlen_sl(map->map_lines[0]);
     map->w--;
     return (0);
 }
@@ -54,12 +58,18 @@ t_map *read_map(char *path)
     r = ft_calloc(1, sizeof(t_map));
     fd = open(path, O_RDONLY);
     r->h = count_map_lines(fd);
-    r->map_lines = malloc(sizeof(char *) * r->h + 1);
+    r->map_lines = malloc(sizeof(char *) * (r->h + 1));
+    if (!r->map_lines)
+        return (NULL);
     close (fd);
     fd = open(path, O_RDONLY);
     i = get_map_lines(fd, r);
     if (i == 1)
+    {
+        free_map(r);
+        write(1,"empy file",10);
         return (NULL);
+    }
     return (r);
 }
 

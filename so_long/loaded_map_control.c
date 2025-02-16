@@ -37,9 +37,9 @@ void    check_map_size(t_win *win)
 
     i = 0;
     len = win->map->w;
-    while(win->map->map_lines[i])
+    while(win->map->map_lines[i]) 
     {
-        this_len = ft_strlen(win->map->map_lines[i]) - 1;
+        this_len = ft_strlen_sl(win->map->map_lines[i]) - 1;
         if (i == win->map->h - 1)
             this_len++;
 

@@ -46,6 +46,8 @@ void    xpm_isexist();
 void    map_path_control(char *path);
 void    map_file_exits(char *path);
 
+int ft_strlen_sl(char *str);
+
 t_map   *read_map(char *path);
 void    load_map(t_win *win);
 
@@ -62,7 +64,7 @@ int     catch_key(int keycode, void *param);
 void    start_ff(t_win *win);
 
 
-
+void free_map(t_map *map);
 
 
 

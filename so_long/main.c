@@ -35,10 +35,16 @@ int    stop_mlx(t_win *win)
         free(win->map->map_lines[i++]);
     free(win->map->map_lines);
     free(win->map);
+    while(win->map_copy->map_lines[--i] && i >= 0)
+        free(win->map_copy->map_lines[i]);
     free(win->map_copy->map_lines);
     free(win->map_copy);
     mlx_destroy_window(win->mlx, win->win);
+    mlx_destroy_display(win->mlx);
+    free(win->mlx);
+    mlx_loop_end(win->mlx);
     exit(1);
+    return (0);
 }
 
 
@@ -50,14 +56,19 @@ void    open_win(t_win *win, char *path)
     x = 0;
     y = 0;
     win->map = read_map(path);
+    if (!win->map)
+    {
+        free_map(win->map);
+        exit(1);
+    }
+    win->map_copy = read_map(path);
     start_mlx(win, x, y);
-    check_player(win);
     check_map_size(win);
     check_wall(win);
+    check_player(win);
     check_exit(win);
     check_coin(win);
     check_elements(win);
-    win->map_copy = read_map(path);
     start_ff(win);
 }
 

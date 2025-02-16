@@ -2,11 +2,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int ft_strlen(char *str)
+int ft_strlen_sl(char *str)
 {
     int i;
 
     i = 0;
+    if (str == NULL)
+        return (0);
     while(str[i])
         i++;
     return (i);
@@ -46,7 +48,7 @@ void map_path_control(char *path)
 {
     int len;
 
-    len = ft_strlen(path);
+    len = ft_strlen_sl(path);
     if (!(path[len - 1] == 'r' && path[len - 2] == 'e' && path[len - 3] == 'b' && path[len - 4] == '.'))
     {
         write(2, "Not .ber file\n", 14);
