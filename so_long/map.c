@@ -29,11 +29,8 @@ int get_map_lines(int fd, t_map *map)
 
     i = 0;
     if (map->h <= 0)
-    {
-        
         return (1);
-    }
-    while(i < map->h)
+    while(i < map->h + 1)
     {
         map->map_lines[i] = get_next_line(fd);
         i++;
@@ -58,7 +55,7 @@ t_map *read_map(char *path)
     r = ft_calloc(1, sizeof(t_map));
     fd = open(path, O_RDONLY);
     r->h = count_map_lines(fd);
-    r->map_lines = malloc(sizeof(char *) * (r->h + 1));
+    r->map_lines = ft_calloc(sizeof(char *) , (r->h + 1));
     if (!r->map_lines)
         return (NULL);
     close (fd);

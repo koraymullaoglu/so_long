@@ -35,14 +35,14 @@ int    stop_mlx(t_win *win)
         free(win->map->map_lines[i++]);
     free(win->map->map_lines);
     free(win->map);
-    while(win->map_copy->map_lines[--i] && i >= 0)
-        free(win->map_copy->map_lines[i]);
+    i = 0;
+    while(win->map_copy->map_lines[i])
+        free(win->map_copy->map_lines[i++]);
     free(win->map_copy->map_lines);
     free(win->map_copy);
     mlx_destroy_window(win->mlx, win->win);
     mlx_destroy_display(win->mlx);
     free(win->mlx);
-    mlx_loop_end(win->mlx);
     exit(1);
     return (0);
 }
