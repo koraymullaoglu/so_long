@@ -1,5 +1,5 @@
 NAME = so_long
-SRC =  loaded_map_control.c map_control.c map.c movement.c flood_fill.c free_map.c main.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+SRC =  loaded_map_control.c check_elements.c map_control.c map.c movement.c flood_fill.c free_map.c main.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
