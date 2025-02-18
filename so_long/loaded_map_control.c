@@ -25,7 +25,7 @@ void    check_player(t_win *win)
     if (win->map->p_ct != 1)
     {
         write(2,"Player count error\n", 19);
-        stop_mlx(win);
+        free_all_maps(win);
     }
 }
 
@@ -46,7 +46,7 @@ void    check_map_size(t_win *win)
         if (this_len != len)
         {
             write(2, "Invalid line\n", 13);
-            stop_mlx(win);
+            free_all_maps(win);
         }
         i++;
     }
@@ -64,7 +64,7 @@ void    check_wall(t_win *win)
             || win->map->map_lines[win->map->h - 1][i] != '1')
         {
             write(2, "Invalid wall\n", 13);
-            stop_mlx(win);
+            free_all_maps(win);
         }
         i++;
     }
@@ -76,7 +76,7 @@ void    check_wall(t_win *win)
             || win->map->map_lines[i][lst] != '1')
         {
             write(2, "Invalid wall\n", 13);
-            stop_mlx(win);
+            free_all_maps(win);
         }
         i++;
     }
@@ -103,7 +103,7 @@ void check_exit(t_win *win)
     if (win->map->end_ct < 1) //bi bak
     {
         write(2, "Invalid exit\n", 13);
-        stop_mlx(win);
+        free_all_maps(win);
     }
 }
 
@@ -133,7 +133,7 @@ void check_coin(t_win *win)
     if (win->map->coin_ct <= 0)
     {
         write(2, "No any coin\n", 12);
-        stop_mlx(win);
+        free_all_maps(win);
     }
 }
 
@@ -155,7 +155,7 @@ void    check_elements(t_win *win)
                 && win->map->map_lines[i][j] != 'C')
             {
                 write(2, "Invalid element\n", 16);
-                stop_mlx(win);
+                free_all_maps(win);
             }
             j++;
         }

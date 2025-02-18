@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 16:01:53 by femullao          #+#    #+#             */
-/*   Updated: 2024/10/18 18:43:22 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:45:33 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*p;
-
+	void	*p; 
 	p = malloc(count * size);
 	if (p == 0)
 		return (p);

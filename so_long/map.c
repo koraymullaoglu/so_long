@@ -63,9 +63,10 @@ t_map *read_map(char *path)
     i = get_map_lines(fd, r);
     if (i == 1)
     {
-        free_map(r);
+        free(r->map_lines);
+        free(r);
         write(1,"empy file",10);
-        return (NULL);
+        exit (1);
     }
     return (r);
 }

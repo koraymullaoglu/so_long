@@ -56,13 +56,8 @@ void    open_win(t_win *win, char *path)
     x = 0;
     y = 0;
     win->map = read_map(path);
-    if (!win->map)
-    {
-        free_map(win->map);
-        exit(1);
-    }
+    
     win->map_copy = read_map(path);
-    start_mlx(win, x, y);
     check_map_size(win);
     check_wall(win);
     check_player(win);
@@ -70,6 +65,7 @@ void    open_win(t_win *win, char *path)
     check_coin(win);
     check_elements(win);
     start_ff(win);
+    start_mlx(win, x, y);
 }
 
 

@@ -64,7 +64,8 @@ int     catch_key(int keycode, void *param);
 void    start_ff(t_win *win);
 
 
-void free_map(t_map *map);
+void    free_map(t_map *map);
+void    free_all_maps(t_win *win);
 
 
 
