@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:03:19 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/18 17:05:03 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:46:47 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int ac, char **av)
 		open_win(&win, av[1]);
 		load_map(&win);
 		mlx_hook(win.win, 17, 0, stop_mlx, &win);
-		mlx_hook(win.win, 2, (1L << 0), catch_key, &win);
+		mlx_key_hook(win.win, catch_key, &win);
 		mlx_loop((&win)->mlx);
 	}
 	else
