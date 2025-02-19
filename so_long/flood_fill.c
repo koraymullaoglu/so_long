@@ -6,7 +6,7 @@
 /*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:41:10 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/19 11:24:53 by koraym           ###   ########.fr       */
+/*   Updated: 2025/02/19 13:08:50 by koraym           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void	find_player(t_win *win)
 
 void	f_fill(t_map *mapc, int row, int col)
 {
-	if (row < 0 || col < 0)
-		return ;
-	if (row >= mapc->h || col >= mapc->w)
+	if (row < 0 || col < 0 || row >= mapc->h || col >= mapc->w)
 		return ;
 	if (mapc->map_lines[row][col] == 'S' || mapc->map_lines[row][col] == '1')
 		return ;
