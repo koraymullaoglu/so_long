@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loaded_map_control.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:44:50 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/18 17:02:14 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:55:45 by koraym           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,6 @@ void	check_coin(t_win *win)
 	int	j;
 
 	i = 0;
-	win->map->coin_ct = 0;
 	win->map->cb = 0;
 	while (win->map->map_lines[i])
 	{
@@ -131,15 +130,11 @@ void	check_coin(t_win *win)
 		while (win->map->map_lines[i][j])
 		{
 			if (win->map->map_lines[i][j++] == 'C')
-			{
-				win->map->coin_ct += 1;
 				win->map->cb += 1;
-				win->map->coin_fnd += 1;
-			}
 		}
 		i++;
 	}
-	if (win->map->coin_ct <= 0)
+	if (win->map->cb <= 0)
 	{
 		write(2, "No any coin\n", 12);
 		free_all_maps(win);

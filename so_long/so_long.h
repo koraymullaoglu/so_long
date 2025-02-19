@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:14:45 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/18 17:21:25 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:57:44 by koraym           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ typedef struct s_map
 	int			gatey;
 	int			p_ct;
 	int			end_ct;
-	int			coin_ct;
-	int			coin_fnd;
-	int			ext_fnd;
 	int			player_x;
 	int			player_y;
 }				t_map;
