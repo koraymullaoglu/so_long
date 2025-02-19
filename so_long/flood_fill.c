@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:41:10 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/18 16:42:18 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:24:53 by koraym           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	f_fill(t_map *mapc, int row, int col)
 		return ;
 	if (row >= mapc->h || col >= mapc->w)
 		return ;
-	if (mapc->map_lines[row][col] == '8' || mapc->map_lines[row][col] == '1')
+	if (mapc->map_lines[row][col] == 'S' || mapc->map_lines[row][col] == '1')
 		return ;
-	mapc->map_lines[row][col] = '8';
+	mapc->map_lines[row][col] = 'S';
 	f_fill(mapc, row - 1, col);
 	f_fill(mapc, row + 1, col);
 	f_fill(mapc, row, col - 1);
@@ -76,5 +76,5 @@ void	start_ff(t_win *win)
 	find_player(win);
 	f_fill(win->map_copy, win->map_copy->player_y, win->map_copy->player_x);
 	if (check_ff(win->map_copy->map_lines) == 1)
-		stop_mlx(win);
+		free_all_maps(win);
 }
