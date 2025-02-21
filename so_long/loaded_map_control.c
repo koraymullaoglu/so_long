@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loaded_map_control.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
+/*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:44:50 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/19 10:55:45 by koraym           ###   ########.fr       */
+/*   Updated: 2025/02/21 19:51:24 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	check_exit(t_win *win)
 		}
 		i++;
 	}
-	if (win->map->end_ct < 1)
+	if (win->map->end_ct != 1)
 	{
 		write(2, "Invalid exit\n", 13);
 		free_all_maps(win);

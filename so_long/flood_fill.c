@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
+/*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:41:10 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/19 13:08:50 by koraym           ###   ########.fr       */
+/*   Updated: 2025/02/21 19:54:24 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <unistd.h>
 #include <stdlib.h>
 
 void	find_player(t_win *win)
@@ -74,5 +75,8 @@ void	start_ff(t_win *win)
 	find_player(win);
 	f_fill(win->map_copy, win->map_copy->player_y, win->map_copy->player_x);
 	if (check_ff(win->map_copy->map_lines) == 1)
+	{
+		write(2, "Impossible Map\n", 15);
 		free_all_maps(win);
+	}
 }

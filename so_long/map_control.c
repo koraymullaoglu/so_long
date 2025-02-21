@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_control.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
+/*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:05:51 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/19 10:41:18 by koraym           ###   ########.fr       */
+/*   Updated: 2025/02/21 20:02:15 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	xpm_isexist(void)
 	int	fd_ex;
 	int	fd_w;
 
-	fd_chr = open("assets/player.xpm", O_RDWR);
-	fd_bg = open("assets/bg.xpm", O_RDWR);
-	fd_c = open("assets/coin.xpm", O_RDWR);
-	fd_ex = open("assets/exit.xpm", O_RDWR);
-	fd_w = open("assets/wall.xpm", O_RDWR);
+	fd_chr = open("textures/pl.xpm", O_RDWR);
+	fd_bg = open("textures/bg.xpm", O_RDWR);
+	fd_c = open("textures/coin.xpm", O_RDWR);
+	fd_ex = open("textures/exit.xpm", O_RDWR);
+	fd_w = open("textures/wl.xpm", O_RDWR);
 	if (fd_chr <= 0 || fd_bg <= 0 || fd_c <= 0 || fd_ex <= 0 || fd_w <= 0)
 	{
 		close(fd_chr);
