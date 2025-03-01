@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:05:51 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/21 20:02:15 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:53:06 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	xpm_isexist(void)
 	int	fd_ex;
 	int	fd_w;
 
-	fd_chr = open("textures/pl.xpm", O_RDWR);
+	fd_chr = open("textures/plr.xpm", O_RDWR);
 	fd_bg = open("textures/bg.xpm", O_RDWR);
 	fd_c = open("textures/coin.xpm", O_RDWR);
 	fd_ex = open("textures/exit.xpm", O_RDWR);

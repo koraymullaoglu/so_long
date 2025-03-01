@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: koraym <koraym@student.42.fr>              +#+  +:+       +#+        */
+/*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:14:45 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/19 10:57:44 by koraym           ###   ########.fr       */
+/*   Updated: 2025/02/21 16:24:50 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_map
 	char		**map_lines;
 	int			w;
 	int			h;
-	int			cb;
+	int			coin_ct;
 	int			gatex;
 	int			gatey;
 	int			p_ct;

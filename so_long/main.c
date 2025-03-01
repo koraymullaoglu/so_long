@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:03:19 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/21 20:02:02 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:55:00 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	start_mlx(t_win *win, int x, int y)
 	win->hgh = win->map->h * 64;
 	win->wdt = win->map->w * 64;
 	win->mlx = mlx_init();
-	win->win = mlx_new_window(win->mlx, win->wdt, win->hgh, "MyGame");
+	win->win = mlx_new_window(win->mlx, win->wdt, win->hgh, "so_long");
 	win->chr = ft_calloc(1, sizeof(t_char));
 	win->chr->l_x = 0;
 	win->chr->l_y = 0;
 	win->chr->point = 0;
-	win->chr->cr = mlx_xpm_file_to_image(win->mlx, "textures/pl.xpm", &x, &y);
+	win->chr->cr = mlx_xpm_file_to_image(win->mlx, "textures/plr.xpm", &x, &y);
 	win->img_bg = mlx_xpm_file_to_image(win->mlx, "textures/bg.xpm", &x, &y);
 	win->c_bg = mlx_xpm_file_to_image(win->mlx, "textures/coin.xpm", &x, &y);
 	win->end_bg = mlx_xpm_file_to_image(win->mlx, "textures/exit.xpm", &x, &y);

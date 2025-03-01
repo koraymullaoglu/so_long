@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:12:33 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/18 17:14:20 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:39:51 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	move_player(t_win *win, int x, int y)
 {
-	if (win->map->cb == 0 && win->map->map_lines[y / 64][x / 64] == 'E')
+	if (win->map->coin_ct == 0 && win->map->map_lines[y / 64][x / 64] == 'E')
 	{
 		ft_printf("move count: %d\n", ++win->chr->point);
 		ft_printf("Win!\n");
@@ -26,12 +26,12 @@ void	move_player(t_win *win, int x, int y)
 	{
 		win->chr->point++;
 		if (win->map->map_lines[y / 64][x / 64] == 'C')
-			win->map->cb--;
+			win->map->coin_ct--;
 		win->map->map_lines[win->chr->l_y / 64][win->chr->l_x / 64] = '0';
 		win->map->map_lines[win->map->gatey / 64][win->map->gatex / 64] = 'E';
 		win->map->map_lines[y / 64][x / 64] = 'P';
+		ft_printf("move count: %d\n", win->chr->point);
 	}
-	ft_printf("move count: %d\n", win->chr->point);
 }
 
 int	catch_key(int keycode, void *param)

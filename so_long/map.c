@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:10:12 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/21 19:58:40 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:35:43 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ int	get_map_lines(int fd, t_map *map)
 	}
 	close(fd);
 	if (!map->map_lines[0])
-	{
-		free_map(map);
 		return (1);
-	}
 	map->w = ft_strlen_sl(map->map_lines[0]);
 	map->w--;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: femullao <femullao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:44:50 by femullao          #+#    #+#             */
-/*   Updated: 2025/02/21 19:51:24 by femullao         ###   ########.fr       */
+/*   Updated: 2025/02/23 13:12:48 by femullao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,18 +123,18 @@ void	check_coin(t_win *win)
 	int	j;
 
 	i = 0;
-	win->map->cb = 0;
+	win->map->coin_ct = 0;
 	while (win->map->map_lines[i])
 	{
 		j = 0;
 		while (win->map->map_lines[i][j])
 		{
 			if (win->map->map_lines[i][j++] == 'C')
-				win->map->cb += 1;
+				win->map->coin_ct += 1;
 		}
 		i++;
 	}
-	if (win->map->cb <= 0)
+	if (win->map->coin_ct <= 0)
 	{
 		write(2, "No any coin\n", 12);
 		free_all_maps(win);
