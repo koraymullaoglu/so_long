@@ -52,7 +52,7 @@ cd so_long
 > Your program has to take as parameter a map description file ending with the .ber
 extension.
 ```bash
-< ./so_long maps/map.ber
+./so_long maps/map.ber
 ```
 
 - You must use the MiniLibX.
